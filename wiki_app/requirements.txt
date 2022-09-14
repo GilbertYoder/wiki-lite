@@ -1,0 +1,20 @@
+# aiofiles==22.1.0
+# blinker==1.5
+Flask-Login==0.6.2
+gitdb==4.0.9
+GitPython==3.1.27
+# h11==0.13.0
+# h2==4.1.0
+# hpack==4.0.0
+hypercorn==0.14.3
+hyperframe==6.0.1
+# itsdangerous==2.1.2
+Jinja2==3.1.2
+Markdown==3.4.1
+# MarkupSafe==2.1.1
+# priority==2.0.0
+quart==0.18.0
+# smmap==5.0.0
+# toml==0.10.2
+# Werkzeug==2.2.2
+# wsproto==1.2.0

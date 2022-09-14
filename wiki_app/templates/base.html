@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/themeing/wiki_render_style.css">
+
+    <script>
+    const pagename = "{{ pagename }}";
+    </script>
+
+    <title>Wiki: {{ pagename }}</title>
+</head>
+<body class="wiki_text">
+    <div id="main">
+        
+        <div class="header">
+            {% block header %}
+            <h1>{{ site_name }}</h1>
+            <div class="right_side">
+                <label>Search: <input type="text" onkeydown="search_if_necessary(event)" id="search_box"></label>
+                <a href="/logout">Logout</a>
+            </div>
+            {% endblock %}
+        </div>
+
+        {% block left_sidebar %}
+        <div class="sidebar left_sidebar">
+        </div>
+        {% endblock %}
+
+        <div class="center">
+            {% block center %}
+            {% endblock %}
+        </div>
+        
+        <div class="sidebar right_sidebar">
+            {% block right_sidebar %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block extras %}
+    {% endblock %}
+</body>
+{% block scripts %}
+<script src="/static/utilities.js"></script>
+{% endblock %}
+</html>

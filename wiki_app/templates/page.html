@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block center %}
+    <span>
+        {% for s in slug_list %}
+            /<a href="{{s[1]}}">{{s[0]}}</a>
+        {% endfor %}
+    </span>
+    <div id="wiki_rendered" :class="{ hidden : edit_mode }">{{ html|safe }}</div>
+    <div id="wiki_edit" :class="{ hidden : !edit_mode }">
+        <textarea  oninput='resize_textarea()' id="wiki_text_area" class="wiki_text" v-model="markdown_template" :disabled="page_sha != ''"></textarea>
+    </div>
+{% endblock %}
+        
+{% block right_sidebar %}
+<div class="section">
+    <div class="container">
+        {% if page_exists %}
+        <!-- Current Page -->
+        <div class="page_actions">
+            <template v-if="!edit_mode && page_sha == ''">
+                <div class="action_li">
+                    <div><a href="#" @click="enter_edit_mode()">Edit</a></div>
+                    <div><a href="#" @click="delete_page()">Delete</a></div>
+                </div>
+            </template>
+            <template v-if="!edit_mode && page_sha != ''">
+                <div class="action_li">
+                    <div><a href="#" @click="enter_edit_mode()">View source</a></div>
+                </div>
+            </template>
+            <template v-if="edit_mode && page_sha != ''">
+                <div class="action_li">
+                    <div><a href="#" @click="view_html()">View html</a></div>
+                </div>
+            </template>
+            <template v-if="edit_mode && page_sha == ''">
+                <div class="action_li j_left">
+                    <div>Commit Message</div>
+                </div>
+                <div class="action_li j_left">
+                    <input type="text" v-model="commit_message">
+                </div>
+                <div class="action_li">
+                    <div><a href="#" @click="save_edit_mode()">Save</a></div>
+                    <div><a href="#" @click="cancel_edit_mode()">Cancel</a></div>
+                </div>
+            </template>
+        </div>
+        {% else %}
+        <div class="page_actions">
+            <div><a href="#" @click="create_page()">Create Page</a></div>
+        </div>
+        {% endif %}
+    </div>
+    <template v-if="!edit_mode">
+        Page Details
+        <div class="container">
+            <details>
+                <summary class="heading"><strong>Page History: </strong></summary>
+                {% for commit in history %}
+                <div class="action_li j_left history_item" :class="{ selected: page_sha == '{{commit[3]}}' }">
+                    <div class="msg"><a href="#" @click="view_version('{{commit[3]}}')">{{commit[0]}}</a></div>
+                    <div class="author">{{commit[1]}}</div>
+                    <div class="date">{{commit[2]}}</div>
+                </div>
+                {% endfor %}
+            </details>
+        </div>
+    </template>
+</div>
+<div class="section" v-if="!edit_mode">
+    Navigation
+    <div class="container">
+        <div class="heading"><div><strong>Bookmarks</div></strong></div>
+        {% for bookmark in bookmarks %}
+            <a href="{{bookmark[1]}}">{{bookmark[0]}}</a>
+        {% endfor %}
+        <div class="container_spacer"></div>
+        <div class="heading"><div><strong>Folders ({{ sidebar_folders|length }})</div><div><a href="#" @click="new_folder()"></strong>New Folder</a></div></div>
+        {% if not hide_nav_up %}
+            <a href="../">../</a>
+        {% endif %}
+        {% for folder in sidebar_folders %}
+            <a href="{{folder}}">{{folder}}</a>
+        {% endfor %}
+        <div class="container_spacer"></div>
+        <details>
+            <summary class="heading"><div><strong>Pages ({{ sidebar_files|length }})</div><div><a href="#" @click="new_file()"></strong>New Page</a></div></summary>
+            <ul>
+                {% for file in sidebar_files %}
+                    <li><a href="{{file}}">{{file}}</a></li>
+                {% endfor %}
+            </ul>
+        </details>
+    </div>
+</div>
+{% endblock %}
+
+<!-- {% block extras %}
+<div id="action_popup" v-if="show_palette">
+    <div class="input_title">[[user_input_title]]</div>
+    <input v-model="user_input" id="command_input" spellcheck="false">
+</div>
+{% endblock %} -->
+
+{% block scripts %}
+<script>
+    const relativepath = "{{ relativepath }}";
+</script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="/static/page.js"></script>
+<script src="/static/utilities.js"></script>
+{% endblock %}

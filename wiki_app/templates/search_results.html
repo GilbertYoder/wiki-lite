@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block center %}
+<h1>Search results</h1>
+{% for match in matches['matches'] %}
+    <div class="section">
+        <details open>
+            <summary><a href="{{ match['path'] }}">{{ match['filename'] }}</a> {{match['path']}}</summary>
+            <ul>
+                {% for line in match['matches'] %}
+                    <li>{{ line|safe }}</li>    
+                {% endfor %}
+            </ul>
+        </details>
+    </div>
+{% endfor %}
+{% endblock %}
+
+{% block right_sidebar %}
+<div class="section">
+        Navigation
+        <div class="container">
+            <div class="heading"><div><strong>Bookmarks</div></strong></div>
+            {% for bookmark in bookmarks %}
+                <a href="{{bookmark[1]}}">{{bookmark[0]}}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

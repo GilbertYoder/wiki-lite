@@ -1,0 +1,62 @@
+.center {
+    font-size: .75rem;
+}
+
+#wiki_rendered {
+    padding: 10px;
+    
+    border-radius: 10px;
+    box-shadow: rgba(160, 160, 160, 0.411) 5px 5px 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgray;
+    line-height: 1.6;
+}
+
+#wiki_rendered code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(243, 243, 243);
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid rgb(196, 196, 196);
+}
+
+#wiki_rendered pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(243, 243, 243);
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid rgb(155, 155, 155); 
+    overflow-x: scroll;
+}
+
+#wiki_rendered pre > code {
+    padding: 0;
+    border: none;
+    background-color: inherit;
+}
+
+#wiki_rendered table {
+    border-collapse: collapse;
+}
+
+#wiki_rendered th, td {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+#wiki_rendered th {
+    background-color: rgb(235, 235, 235);
+}
+
+/* EDIT AREA */
+
+#wiki_text_area {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(160, 160, 160, 0.411) 5px 5px 10px;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgray;
+    font-size: inherit;
+}

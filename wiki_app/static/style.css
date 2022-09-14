@@ -1,0 +1,280 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.wiki_text {
+    /* background-color: rgb(37, 35, 35); */
+    background-color: whitesmoke;
+    /* color: rgb(226, 226, 226); */
+    color: black;
+    /* color: black; */
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    /* grid-template-columns: .7fr 4fr 1.5fr; */
+    grid-template-rows: 80px 1fr 80px;
+    /* gap: 20px; */
+}
+
+.header {
+    color: white;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    font-size: .8rem;
+    background-color: rgba(26, 21, 21, 0.959);;
+}
+
+.header .right_side {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.header .right_side input{
+    width: 400px;
+}
+
+.sidebar {
+    padding: 60px 20px;
+}
+
+.sidebar .section {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left_sidebar {
+    /* padding: 20px; */
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.right_sidebar {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+.container {
+    user-select: none;
+    font-size: .85rem;
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 2px;
+    border: 1px solid rgb(214, 214, 214);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_spacer {
+    width: 100%;
+    height: 25px;
+}
+
+.container .heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container ul {
+    padding: 0;
+}
+
+.container li {
+    list-style: none;
+}
+
+.page_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    gap: 10px;
+}
+
+.action_li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.j_left{
+    justify-content: start;
+}
+
+.history_item {
+    height: 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding: 5px;
+    margin-top: 10px;
+    /* background-color: whitesmoke; */
+}
+
+.selected{
+    /* height: 30px; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow-x: hidden;
+    white-space: nowrap;
+    margin-top: 10px;
+    color: white;
+    /* background-color: rgba(139, 0, 0, 0.144); */
+    background-color: rgba(56, 139, 0, 0.15);
+    /* background-color: whitesmoke; */
+}
+
+.history_item .msg {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.history_item .author {
+    grid-row: 1;
+    grid-column: 1;
+    color: gray;
+}
+
+.history_item .date {
+    color: gray;
+    text-align: right;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.action_li input {
+    width: 100%;
+}
+
+match {
+    background-color: yellow;
+    padding: 1px;
+}
+
+.center {
+    grid-row: 2;
+    /* grid-column: 2; */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.center_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.center .section {
+    padding: 10px;
+    /* margin-bottom: 10px; */
+    border-radius: 10px;
+    /* box-shadow: rgba(160, 160, 160, 0.411) 5px 5px 10px; */
+    background-color: white;
+    color: black;
+    border: 1px solid lightgray;
+}
+
+.center .section li{
+    list-style: none;
+    margin-top: 20px;
+}
+
+.center .section summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.center .section a {
+    font-size: .9rem;
+}
+
+#wiki_edit {
+    height: 100%;
+    width: 100%;
+}
+
+#wiki_text_area {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    line-height: 1.6;
+    visibility: hidden;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(187, 0, 0);
+}
+
+a:active {
+    color: rgb(32, 52, 170);
+}
+
+#action_popup {
+    position: absolute;
+    width: 450px;
+    height: 70px;
+    left: calc(50vw - 225px);
+    top: calc(25vh - 35px);
+    /* top: 80px; */
+
+    background-color: rgb(37, 35, 35);
+    color: white;
+    z-index: 110;
+
+    /* padding: 10px; */
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    visibility: hidden;
+}
+
+#action_popup input {
+    height: 37px;
+    width: 100%;
+    margin: 0px 10px;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid rgb(11, 164, 202);
+    border-radius: 3px;
+    color: white;
+}
+
+.pre_hidden {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none;
+}
