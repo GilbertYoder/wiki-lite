@@ -111,7 +111,7 @@ class LayoutPage {
                     this.execute_cmd();
                 },
                 delete_page() {
-                    this.command = "delete";
+                    this.command = "delete_page";
                     this.execute_cmd();
                 },
                 get_user_input() {
