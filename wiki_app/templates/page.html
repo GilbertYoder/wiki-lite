@@ -8,7 +8,7 @@
     </span>
     <div id="wiki_rendered" :class="{ hidden : edit_mode }">{{ html|safe }}</div>
     <div id="wiki_edit" :class="{ hidden : !edit_mode }">
-        <textarea  oninput='resize_textarea()' id="wiki_text_area" class="wiki_text" v-model="markdown_template" :disabled="page_sha != ''"></textarea>
+        <textarea  oninput='resize_textarea()' id="wiki_text_area" class="wiki_text" v-model="markdown_template" :disabled="page_sha != ''" spellcheck="false"></textarea>
     </div>
 {% endblock %}
         

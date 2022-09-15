@@ -59,4 +59,5 @@
     background-color: white;
     border: 1px solid lightgray;
     font-size: inherit;
+    overflow-y: hidden;
 }
