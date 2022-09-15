@@ -214,6 +214,9 @@ page.init_data()
 function resize_textarea() {
     scroll = document.documentElement.scrollTop || document.body.scrollTop;
     let text_area = document.getElementById('wiki_text_area');
-    text_area.style.height = "";text_area.style.height = text_area.scrollHeight + "px"
+    text_area.style.overflowY = "scroll";
+    text_area.style.height = "";
+    text_area.style.height = text_area.scrollHeight + "px"
+    text_area.style.overflowY = "hidden";
     document.documentElement.scrollTop = document.body.scrollTop = scroll;
 }
