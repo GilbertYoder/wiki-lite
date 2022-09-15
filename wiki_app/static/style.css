@@ -9,14 +9,15 @@ body {
     /* color: rgb(226, 226, 226); */
     color: black;
     /* color: black; */
-    font-family:Arial, Helvetica, sans-serif;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
 
 #main {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     /* grid-template-columns: .7fr 4fr 1.5fr; */
-    grid-template-rows: 80px 1fr 80px;
+    grid-template-rows: 60px 1fr 80px;
     /* gap: 20px; */
 }
 
@@ -31,11 +32,12 @@ body {
     justify-content: space-between;
     padding: 20px;
 
-    font-size: .8rem;
+    font-size: .6rem;
     background-color: rgba(26, 21, 21, 0.959);;
 }
 
 .header .right_side {
+    font-size: .83rem;
     display: flex;
     align-items: center;
     gap: 50px;

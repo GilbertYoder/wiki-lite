@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block center %}
-<h1>Search results</h1>
+<h1>Search results ({{ matches['matches']|length }})</h1>
 {% for match in matches['matches'] %}
     <div class="section">
         <details open>

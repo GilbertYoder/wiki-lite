@@ -171,7 +171,7 @@ class Page:
         self.name = fullpath.split("/")[-1][:-3]
         self._exists = False
 
-        self.source = "**This page isn't created yet.**\n\n Enter ```np:" + Router.ensure_no_extension(Router.get_pagename(fullpath)) + "``` in the command palette to create it."
+        self.source = "**This page isn't created yet.**\n\n Click 'Create Page' to create it."
         self.html = markdown(self.source, extensions=['fenced_code', 'tables'])
         return self
 

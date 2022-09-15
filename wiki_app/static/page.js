@@ -198,22 +198,6 @@ class LayoutPage {
                         e.preventDefault();
                         this.enter_edit_mode();
                     }
-                    if (e.ctrlKey && e.altKey) {
-                        e.preventDefault();
-                        this.command = "";
-                        if (this.edit_mode) return;
-                        this.toggle_palette();
-                    }
-                    if (e.key === "Escape") {
-                        this.show_palette = false;
-                        return;
-                    }
-                    if (e.key === "Enter") {
-                        if (this.show_palette) {
-                            this.show_palette = false;
-                            this.execute_cmd();
-                        }
-                    }
                 }
             },
             delimiters: ['[[', ']]'],
